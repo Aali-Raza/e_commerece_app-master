@@ -21,7 +21,7 @@ class CustomFuleContainer extends StatelessWidget {
           boxShadow: [
             BoxShadow(color: Colors.grey, blurRadius: .8.sp, spreadRadius: .7)
           ]),
-      height: 100.sp,
+      height: 120.sp,
       width: 270.sp,
       child: Row(
         children: <Widget>[
@@ -55,7 +55,7 @@ class CustomFuleContainer extends StatelessWidget {
                     style: TextStyle(),
                   ),
                   Text(
-                    ":  $price + 90/litter ",
+                    ":  $price + 20/litter ",
                     style: TextStyle(),
                   ),
                 ],
@@ -72,6 +72,7 @@ class CustomFuleContainer extends StatelessWidget {
                   ),
                 ],
               ),
+              ElevatedButton(onPressed: onTap, child: Text("Order Now"))
             ],
           ),
         ],
@@ -79,11 +80,10 @@ class CustomFuleContainer extends StatelessWidget {
     );
   }
 
-  CustomFuleContainer({
-    required this.imageName,
-    required this.tittle,
-    required this.time,
-    required this.onTap,
-    required this.price
-  });
+  CustomFuleContainer(
+      {required this.imageName,
+      required this.tittle,
+      required this.time,
+      required this.onTap,
+      required this.price});
 }

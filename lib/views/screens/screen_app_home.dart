@@ -78,7 +78,9 @@
 //   }
 // }
 import 'package:custom_utils/custom_utils.dart';
+import 'package:e_commerece_app/views/screens/screen_app_contact.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../Custom_UI/custom_fule_container.dart';
 
@@ -86,10 +88,45 @@ class ScreenAppHome extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Fuel Screen'),
-      ),
-      body: CustomFuleContainer(imageName: 'logo', tittle: 'Petrole', time: '15', onTap: () {  }, price: '270',));
+        appBar: AppBar(
+          title: Text('Fuel Screen'),
+        ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              CustomFuleContainer(
+                imageName: 'logo',
+                tittle: 'Petrole',
+                time: '15',
+                onTap: () {},
+                price: '270',
+              ),
 
+              CustomFuleContainer(
+                imageName: 'logo',
+                tittle: 'Petrole',
+                time: '15',
+                onTap: () {
+Get.to(ContactScreen());
+                },
+                price: '400',
+              ),
+              CustomFuleContainer(
+                imageName: 'logo',
+                tittle: 'Petrole',
+                time: '15',
+                onTap: () {},
+                price: '270',
+              ),
+              CustomFuleContainer(
+                imageName: 'logo',
+                tittle: 'Desile',
+                time: '20',
+                onTap: () {},
+                price: '310',
+              ),
+            ],
+          ),
+        ));
   }
 }
