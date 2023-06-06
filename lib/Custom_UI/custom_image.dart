@@ -1,39 +1,28 @@
-
-import 'package:custom_utils/custom_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class Custompng extends StatelessWidget {
   String name;
-var width;
+
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
-      "assets/images/$name.png",
-      width: width,
-    );
+    return Image.asset("assets/images/$name.png");
   }
 
   Custompng({
     required this.name,
-    required this.width,
   });
 }
 
-class Customsvg extends StatelessWidget {
+class CustomSvg extends StatelessWidget {
   String name;
-var width;
+
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
-      "assets/images/$name.png",
-      width: width,
-    );
+    return SvgPicture.asset("assets/images/$name.svg");
   }
 
-  Customsvg({
+  CustomSvg({
     required this.name,
-    required this.width,
   });
 }
-

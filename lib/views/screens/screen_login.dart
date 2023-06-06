@@ -1,3 +1,6 @@
+import 'package:custom_utils/custom_utils.dart';
+import 'package:e_commerece_app/Custom_UI/my_elevated_buton.dart';
+import 'package:e_commerece_app/views/screens/screen_app_home.dart';
 import 'package:e_commerece_app/views/screens/screen_signup.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,10 +20,13 @@ class _screenLogInState extends State<screenLogIn> {
   var email_controller = TextEditingController();
 
   var pasword_controller = TextEditingController();
+  var phone_controller = TextEditingController();
+  var confirm_controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -34,104 +40,82 @@ class _screenLogInState extends State<screenLogIn> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 40, right: 40),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(
-              height: 30,
-            ),
-            Text("Name"),
-            MyTextField(
-              text: 'name',
-              ShowHidePassward: false,
-              controller: name_controller,
-            ),
-            Text("E-mail"),
-            MyTextField(
-              text: 'E-mail',
-              ShowHidePassward: false,
-              controller: email_controller,
-            ),
-            Text("Password"),
-            MyTextField(
-              text: 'Password',
-              ShowHidePassward: true,
-              controller: pasword_controller,
-            ),
-            SizedBox(height: 20,),
-            CustomButton(
-              text: 'Sign Up',
-              onTap: () {
-                Get.to(ScreenSignIn());
-              },
-            ),
-
-            Row(
-              children: [
-                Expanded(
-                  child: Divider(
-                    height: 100,
-                    thickness: 1,
-                    indent: 40,
-                    endIndent: 10,
-                    color: Color(0xffD1D1D1),
-                  ),
-                ),
-                Text("Or sign up with",
+        padding: EdgeInsets.only(left: 40, right: 40),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 30,
+              ),
+              Text("Name"),
+              MyTextField(
+                text: 'name',
+                ShowHidePassward: false,
+                controller: name_controller,
+              ),
+              Text("E-mail"),
+              MyTextField(
+                text: 'E-mail',
+                ShowHidePassward: false,
+                controller: email_controller,
+              ),
+              Text("phone"),
+              MyTextField(
+                text: 'phone',
+                ShowHidePassward: true,
+                controller: phone_controller,
+              ),
+              Text("Password"),
+              MyTextField(
+                text: 'Password',
+                ShowHidePassward: true,
+                controller: pasword_controller,
+              ),
+              Text("confirm password"),
+              MyTextField(
+                text: 'confirm password',
+                ShowHidePassward: true,
+                controller: phone_controller,
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              MyElevatedButton(
+                text: 'Sign In',
+                onpress: () {
+                  Get.to(Get.to(ScreenAppHome()));
+                },
+                color: Colors.white,
+                backgroundcolor: Colors.red,
+              ),
+              SizedBox(
+                height: 30.sp,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    "already have an account?",
                     style: TextStyle(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 10,
                       color: Colors.black,
-                    )),
-                Expanded(
-                  child: Divider(
-                    height: 100,
-                    thickness: 1,
-                    indent: 10,
-                    endIndent: 40,
-                    color: Color(0xffD1D1D1),
+                    ),
                   ),
-                ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  height: 70,
-                  width: 130,
-                  decoration: BoxDecoration(
-                    color: Color(0xffD5DDE0),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Icon(
-                    Icons.facebook,
-                    size: 45,
-                    color: Colors.white,
-                  ),
-                ),
-                Container(
-                  height: 70,
-                  width: 130,
-                  decoration: BoxDecoration(
-                    color: Color(0xffD5DDE0),
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Icon(
-                    Icons.g_mobiledata,
-                    size: 45,
-                    color: Colors.white,
-                  ),
-                )
-              ],
-            ),
-            SizedBox(height: 20,),
-            Align(
-                alignment: Alignment.center,
-                child: Text("Already have an account? Sign In")),
-          ],
+                  TextButton(
+                      onPressed: () {
+                        Get.to(ScreenSignIn());
+                      },
+                      child: Text(
+                        "Login",
+                        style: TextStyle(
+                          color: Colors.grey,
+                        ),
+                      )),
+                ],
+              )
+            ],
+          ),
         ),
       ),
     );

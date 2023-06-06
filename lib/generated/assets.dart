@@ -4,6 +4,7 @@ class Assets {
 
   static const String fontsPoetsenOneRegular = 'assets/fonts/PoetsenOne-Regular.ttf';
   static const String fontsPoetsentone = 'assets/fonts/Poetsentone.ttf';
+  static const String imagesLogo = 'assets/images/logo.png';
   static const String imagesTick = 'assets/images/tick.png';
   static const String imagesTickstars = 'assets/images/tickstars.png';
 

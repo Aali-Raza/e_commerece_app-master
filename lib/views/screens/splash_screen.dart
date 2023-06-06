@@ -17,26 +17,26 @@ class SplashScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             SizedBox(
-              height: 100,
+              height: 130.sp,
             ),
-            Custompng(
-              name: 'tick',
-              width: 150.sp,
-            ),
+            // Custompng(
+            //   name: 'logo',
+            // ),
 
             SizedBox(
               height: 20,
             ),
 
-            Text("Fuel Supply ",
+            Text("Emergency \nFuel Supply ",
+                textAlign: TextAlign.center,
                 style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.w400,
-                    color: Colors.white)),
+                    fontSize: 20.sp,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.orange)),
             // SizedBox(height: 100,),
             Spacer(),
             MyElevatedButton(
-              text: "Sign Up",
+              text: "Login",
               color: Color(0xffCF2E2E),
               backgroundcolor: Colors.white,
               onpress: () {
@@ -47,19 +47,26 @@ class SplashScreen extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            TextButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (BuildContext context) {
-                    return ScreenSignIn();
-                  }));
-                },
-                child: Text(
-                  "Sign In",
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "don't have an account?",
                   style: TextStyle(
-                      color: Colors.white,
-                      decoration: TextDecoration.underline),
-                ))
+                    color: Colors.white,
+                  ),
+                ),
+                TextButton(
+                    onPressed: () {
+                      Get.to(screenLogIn());
+                    },
+                    child: Text(
+                      "Sign In",
+                      style: TextStyle(
+                          color: Colors.white, fontStyle: FontStyle.italic),
+                    )),
+              ],
+            )
           ],
         ));
   }

@@ -1,4 +1,3 @@
-import 'package:e_commerece_app/views/screens/screen_animated_floating_action_buton.dart';
 import 'package:e_commerece_app/views/screens/screen_login.dart';
 import 'package:e_commerece_app/views/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
