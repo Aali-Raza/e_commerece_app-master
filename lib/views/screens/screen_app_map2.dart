@@ -3,16 +3,17 @@ import 'package:e_commerece_app_master/views/screens/screen_app_home.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import '../../helpers/helper.dart';
 import '../../helpers/location_utils.dart';
 
-class ScreenAppMap extends StatefulWidget {
+class ScreenAppMap2 extends StatefulWidget {
   @override
-  _ScreenAppMapState createState() => _ScreenAppMapState();
+  _ScreenAppMap2State createState() => _ScreenAppMap2State();
 }
 
-class _ScreenAppMapState extends State<ScreenAppMap> {
+class _ScreenAppMap2State extends State<ScreenAppMap2> {
   double lat = 30.9572817, lng = 70.9613174;
   String stAdress = '';
   final Completer<GoogleMapController> _controller = Completer();
@@ -87,30 +88,75 @@ class _ScreenAppMapState extends State<ScreenAppMap> {
                             },
                           ),
                           Positioned(
+                            top: 45,
+                            left: 0,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    alignment: Alignment.center,
+                                    margin:
+                                        EdgeInsets.symmetric(horizontal: 30),
+                                    width:
+                                        MediaQuery.of(context).size.width * .73,
+                                    height: 43,
+                                    decoration: BoxDecoration(
+                                      boxShadow: [
+                                        BoxShadow(
+                                            color: Colors.black.withOpacity(.4),
+                                            blurRadius: 3,
+                                            spreadRadius: .9,
+                                            blurStyle: BlurStyle.outer)
+                                      ],
+                                      borderRadius: BorderRadius.circular(30),
+                                      color: Colors.white,
+                                    ),
+                                    child: TextField(
+                                      // controller: _controller1,
+
+                                      decoration: InputDecoration(
+                                        hintText: "search your location here",
+                                        focusColor: Colors.white,
+                                        floatingLabelBehavior:
+                                            FloatingLabelBehavior.never,
+                                        prefixIcon: Icon(Icons.map),
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 30,
+                                    width: 30,
+                                    decoration: BoxDecoration(
+                                        color: Colors.black,
+                                        shape: BoxShape.circle),
+                                    child: Icon(
+                                      Icons.search_outlined,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Positioned(
                             bottom: 20,
                             left: 40,
                             right: 40,
                             child: ElevatedButton(
-                              onPressed: () async {
+                              onPressed: () {
                                 print(stAdress);
                                 print(lng); // Navigator.push(context,
                                 print(lat);
 
-                                await userRef.doc(uid).update({
-                                  "location": stAdress,
-                                  "lat": lat,
-                                  "lng": lng,
-                                }).then((value) {
-                                  print(stAdress);
-                                  print(lat);
-                                  print(lng);
-                                  Get.offAll(ScreenAppHome());
-                                });
+                                Get.offAll(ScreenAppHome());
                               },
                               child: Text('Save'),
                               style: ElevatedButton.styleFrom(
                                   shadowColor: Colors.black,
-                                  backgroundColor: Color(0xff0B3385),
+                                  backgroundColor: Colors.black,
                                   fixedSize: Size(257, 43),
                                   shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(20))),

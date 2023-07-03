@@ -1,7 +1,7 @@
 import 'dart:io';
+import 'package:e_commerece_app_master/extensions/num_extensions.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:e_commerece_app/extensions/num_extensions.dart';
 
 class FirebaseUtils {
   static Future<String> uploadImage(

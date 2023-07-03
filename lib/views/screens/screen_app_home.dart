@@ -77,8 +77,7 @@
 //             )));
 //   }
 // }
-import 'package:custom_utils/custom_utils.dart';
-import 'package:e_commerece_app/views/screens/screen_app_contact.dart';
+import 'package:e_commerece_app_master/views/screens/screen_app_contact.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -89,40 +88,46 @@ class ScreenAppHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+            backgroundColor: Color(0xff0B3385),
           title: Text('Fuel Screen'),
         ),
         body: SingleChildScrollView(
           child: Column(
             children: [
               CustomFuleContainer(
-                imageName: 'logo',
-                tittle: 'Petrole',
-                time: '15',
-                onTap: () {},
-                price: '270',
-              ),
-
-              CustomFuleContainer(
-                imageName: 'logo',
-                tittle: 'Petrole',
+                imageName: 'pump1',
+                tittle: 'Petrol distance less than 3km',
                 time: '15',
                 onTap: () {
-Get.to(ContactScreen());
+                  Get.to(ContactScreen());
+                },
+                price: '270',
+              ),
+              CustomFuleContainer(
+                imageName: 'pump2',
+                tittle: 'Petrol distance less than 5km',
+                time: '15',
+                onTap: () {
+                  Get.to(ContactScreen());
                 },
                 price: '400',
               ),
               CustomFuleContainer(
-                imageName: 'logo',
-                tittle: 'Petrole',
+                imageName: 'pump1',
+                tittle: 'Petrol distance less than 7km',
                 time: '15',
-                onTap: () {},
+                onTap: () {
+                  Get.to(ContactScreen());
+                },
                 price: '270',
               ),
               CustomFuleContainer(
-                imageName: 'logo',
-                tittle: 'Desile',
+                imageName: 'pump1',
+                tittle: 'Petrol distance less than 10km',
                 time: '20',
-                onTap: () {},
+                onTap: () {
+                  Get.to(ContactScreen());
+                },
                 price: '310',
               ),
             ],

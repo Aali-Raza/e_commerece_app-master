@@ -1,11 +1,14 @@
-import 'package:e_commerece_app/views/screens/screen_login.dart';
-import 'package:e_commerece_app/views/screens/splash_screen.dart';
+import 'package:e_commerece_app_master/views/screens/splash_screen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:sizer/sizer.dart';
 
-void main() {
-  runApp(const MyApp());
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
+  runApp( MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -17,11 +20,9 @@ class MyApp extends StatelessWidget {
         builder: (context, orientation, deviceType) {
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
-            title: 'Sizer',
+            title: 'Emergency Fule Supply',
             theme: ThemeData.light(),
             home:SplashScreen(),
-             // home: screenLogIn(),
-            // ScreenAnimatedFloatingActionButon(),
           );
         });
   }

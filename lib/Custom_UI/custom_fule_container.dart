@@ -24,7 +24,7 @@ class CustomFuleContainer extends StatelessWidget {
       height: 120.sp,
       width: 270.sp,
       child: Row(
-        children: <Widget>[
+        children: [
           CustomExrImage(
             name: imageName,
           ),
@@ -34,14 +34,14 @@ class CustomFuleContainer extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
+            children: [
               SizedBox(
                 height: 15,
               ),
               Text(
                 tittle,
                 style: TextStyle(
-                    fontSize: 18.sp,
+                    fontSize: 12.sp,
                     fontWeight: FontWeight.bold,
                     color: Colors.grey.shade500),
               ),
@@ -72,7 +72,12 @@ class CustomFuleContainer extends StatelessWidget {
                   ),
                 ],
               ),
-              ElevatedButton(onPressed: onTap, child: Text("Order Now"))
+              ElevatedButton(
+                onPressed: onTap,
+                child: Text("Order Now"),
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: Color(0xff0B3385)),
+              )
             ],
           ),
         ],

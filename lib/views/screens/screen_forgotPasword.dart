@@ -1,142 +1,76 @@
-import 'package:e_commerece_app/views/screens/screen_forgotPosword_recoveryCode.dart';
+import 'package:e_commerece_app_master/views/screens/screen_signup.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:sizer/sizer.dart';
+import 'package:get/get_core/src/get_main.dart';
+import '../../Custom_UI/my_elevated_buton.dart';
+import '../../Custom_UI/my_textfield.dart';
+import '../../controllers/my_controllers.dart';
 
-class ForgotPasword extends StatefulWidget {
-  @override
-  State<ForgotPasword> createState() => _ForgotPaswordState();
-}
+class ForgetPasword extends StatelessWidget {
+  MyController userController = Get.find<MyController>();
 
-class _ForgotPaswordState extends State<ForgotPasword> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        elevation: 0,
-        leading: GestureDetector(
-            onTap: () {
-              Navigator.pop(context);
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Color(0xff0B3385),
+          elevation: 0,
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back_ios_new),
+            color: Colors.white,
+            onPressed: () {
+              Get.back();
             },
-            child: Icon(
-              Icons.arrow_back,
-              color: Colors.black,
-            )),
-        title: Text(
-          "Forgot password",
-          style: TextStyle(
-            color: Colors.black,
+          ),
+          title: Text(
+            "Forget Password",
+            style: TextStyle(color: Colors.white),
           ),
         ),
-      ),
-      body: Column(
-        children: [
-          Padding(
-            padding: EdgeInsets.only(top: 40, left: 30, right: 30),
+        body: Obx(() {
+          return Padding(
+            padding: EdgeInsets.only(left: 40, right: 40),
             child: Column(
               children: [
-                Text(
-                  textAlign: TextAlign.center,
-                  "Select which contact details should\nwe use to reset your password:",
-                  style: TextStyle(color: Color(0xff3E4958)),
+                SizedBox(
+                  height: 50,
                 ),
-                GestureDetector(
-                  onTap: () {
-                    Get.to(ScreenAppRecoverycode());
-                  },
-                  child: Container(
-                    height: 17.h,
-                    width: 100.w,
-                    decoration: BoxDecoration(
-                      color: Colors.grey.withOpacity(.1),
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(width: 1, color: Color(0xffD5DDE0)),
-                    ),
-                    child: Align(
-                      alignment: Alignment.center,
-                      child: ListTile(
-                        leading: Container(
-                          height: 16.h,
-                          width: 20.w,
-                          decoration: BoxDecoration(
-                            color: Colors.grey.withOpacity(.1),
-                            borderRadius: BorderRadius.circular(12),
-                            border:
-                                Border.all(width: 1, color: Color(0xffD5DDE0)),
-                          ),
-                          child: Icon(
-                            Icons.phone,
-                            color: Colors.black,
-                          ),
-                        ),
-                        title: Text(
-                          "via sms:",
-                          style: TextStyle(
-                              color: Color(0xff3E4958),
-                              fontWeight: FontWeight.w400,
-                              fontSize: 17),
-                        ),
-                        subtitle: Text(
-                          "*** *******61",
-                          style: TextStyle(
-                              color: Color(0xff3E4958),
-                              fontWeight: FontWeight.w400,
-                              fontSize: 17),
-                        ),
-                      ),
-                    ),
-                  ),
+                Text(
+                  "Forget password",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
-                  height: 20,
+                  height: 50,
                 ),
-                Container(
-                  height: 17.h,
-                  width: 100.w,
-                  decoration: BoxDecoration(
-                    color: Colors.grey.withOpacity(.1),
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(width: 1, color: Color(0xffD5DDE0)),
-                  ),
-                  child: Align(
-                    alignment: Alignment.center,
-                    child: ListTile(
-                      leading: Container(
-                        height: 16.h,
-                        width: 20.w,
-                        decoration: BoxDecoration(
-                          color: Colors.grey.withOpacity(.1),
-                          borderRadius: BorderRadius.circular(12),
-                          border:
-                              Border.all(width: 1, color: Color(0xffD5DDE0)),
-                        ),
-                        child: Icon(
-                          Icons.message_outlined,
-                          color: Colors.black,
-                        ),
-                      ),
-                      title: Text(
-                        "via email:",
-                        style: TextStyle(
-                            color: Color(0xff3E4958),
-                            fontWeight: FontWeight.w400,
-                            fontSize: 17),
-                      ),
-                      subtitle: Text(
-                        "****ic16@gmail.com",
-                        style: TextStyle(
-                            color: Color(0xff3E4958),
-                            fontWeight: FontWeight.w400,
-                            fontSize: 17),
-                      ),
-                    ),
-                  ),
+                MyTextField(
+                  text: 'E-mail',
+                  ShowHidePassward: false,
+                  controller: userController.email_controller.value,
                 ),
+                SizedBox(
+                  height: 30,
+                ),
+                MyElevatedButton(
+                  text: "Submit",
+                  onpress: () async {
+                    var response = await userController.ForgetPassword();
+                    if (response == "done") {
+                      Get.snackbar("Success", "Password sent check email");
+                      Get.to(ScreenSignIn());
+                      // userController.update();
+                    } else {
+                      Get.snackbar("Alert", response.toString());
+                      // userController.update();
+                    }
+                  },
+                  color: Colors.white,
+                  backgroundcolor: Color(0xff0B3385),
+                )
               ],
             ),
-          )
-        ],
+          );
+        }),
       ),
     );
   }

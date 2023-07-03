@@ -4,7 +4,18 @@ class Assets {
 
   static const String fontsPoetsenOneRegular = 'assets/fonts/PoetsenOne-Regular.ttf';
   static const String fontsPoetsentone = 'assets/fonts/Poetsentone.ttf';
+  static const String imagesFuelSupply = 'assets/images/Fuel_supply.png';
   static const String imagesLogo = 'assets/images/logo.png';
+  static const String imagesLogo2 = 'assets/images/logo2.png';
+  static const String imagesNavsel = 'assets/images/navsel.png';
+  static const String imagesNavselRemovebgPreview = 'assets/images/navsel-removebg-preview.png';
+  static const String imagesPetrol3 = 'assets/images/petrol3.jpg';
+  static const String imagesPump1 = 'assets/images/pump1.jpg';
+  static const String imagesPump2 = 'assets/images/pump2.jpg';
+  static const String imagesPump4 = 'assets/images/pump4.png';
+  static const String imagesSplash = 'assets/images/splash.png';
+  static const String imagesSplash2 = 'assets/images/splash2.jpg';
+  static const String imagesSplash3 = 'assets/images/splash3.jpg';
   static const String imagesTick = 'assets/images/tick.png';
   static const String imagesTickstars = 'assets/images/tickstars.png';
 

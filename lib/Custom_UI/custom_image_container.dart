@@ -7,6 +7,7 @@ class CustomExrImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      margin: EdgeInsets.all(8.0),
       height: 70.sp,
       width: 70.sp,
       decoration: BoxDecoration(
@@ -15,7 +16,7 @@ class CustomExrImage extends StatelessWidget {
             bottomLeft: Radius.circular(12),
           ),
           image: DecorationImage(
-              image: AssetImage("assets/images/$name.png"), fit: BoxFit.cover)),
+              image: AssetImage("assets/images/$name.jpg"), fit: BoxFit.cover)),
     );
   }
 
